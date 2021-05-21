@@ -20,9 +20,9 @@ xlim([0,5])
 %% Now for the cow data
 %% Cow experiment 1
 subplot(1,3,3)
-probA = readtable('~/Dropbox (MIT)/NonEqDetection/Data/lying_exp_1.txt').Var1;
+probA = readtable('Data/lying_exp_1.txt').Var1;
 % probA extracted from fig 1 (b) of Tolkamp et al.
-probB = readtable('~/Dropbox (MIT)/NonEqDetection/Data/stand_exp_1.txt').Var1;
+probB = readtable('Data/stand_exp_1.txt').Var1;
 % probA extracted from fig 2 (c) of Tolkamp et al. (hence log conversion
 % later)
 histogram('BinEdges',linspace(0,4,length(probA)+1),'BinCounts',probA,...
@@ -47,8 +47,8 @@ plot(sig*(tA + tB)/2 *[1 1],[tA2/tA^2-1 , 0],'k:')
 
 
 %% Cow experiment 2
-probA = readtable('~/Dropbox (MIT)/NonEqDetection/Data/lying_exp_2.txt').Var1;
-probB = readtable('~/Dropbox (MIT)/NonEqDetection/Data/stand_exp_2.txt').Var1;
+probA = readtable('Data/lying_exp_2.txt').Var1;
+probB = readtable('Data/stand_exp_2.txt').Var1;
 subplot(1,3,3)
 hold on
 histogram('BinEdges',linspace(0,4,length(probA)+1),'BinCounts',probA,...
@@ -71,8 +71,8 @@ plot([0,sig*(tA + tB)/2],(tA2/tA^2 -1) *[1 1],'k:')
 plot(sig*(tA + tB)/2 *[1 1],[tA2/tA^2-1 , 0],'k:')
 
 %% Cow experiment 3
-probA = readtable('~/Dropbox (MIT)/NonEqDetection/Data/lying_exp_3.txt').Var1;
-probB = readtable('~/Dropbox (MIT)/NonEqDetection/Data/stand_exp_3.txt').Var1;
+probA = readtable('Data/lying_exp_3.txt').Var1;
+probB = readtable('Data/stand_exp_3.txt').Var1;
 subplot(1,3,3)
 hold on
 histogram('BinEdges',linspace(0,4,length(probA)+1),'BinCounts',probA,...
@@ -101,7 +101,7 @@ plot(sig*(tA + tB)/2 *[1 1],[tA2/tA^2-1 , 0],'k:')
 
 %% And the gene data
 %% For GTGlutaminas
-X = readtable('~/Dropbox (MIT)/NonEqDetection/Data/GTGlutaminase.txt').Var1;
+X = readtable('Data/GTGlutaminase.txt').Var1;
 Y = linspace(0,10,length(X)+1);
 Y = 0.5*(Y(2:end) + Y(1:end-1));
 subplot(1,3,2)
@@ -122,7 +122,7 @@ plot(sig*(tA + tB)/2 *[1 1],[tA2/tA^2-1 , 0],'k--')
 
 %% For Bmal1
 subplot(1,3,2)
-X = readtable('~/Dropbox (MIT)/NonEqDetection/Data/Bmal1a_off.txt').Var1;
+X = readtable('Data/Bmal1a_off.txt').Var1;
 Y = linspace(0,10,length(X)+1);
 Y = 0.5*(Y(2:end) + Y(1:end-1));
 histogram('BinEdges',linspace(0,10,length(X)+1),'BinCounts',X,...
