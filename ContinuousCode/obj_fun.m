@@ -1,6 +1,5 @@
 function [f,df] = obj_fun(x,N,M)
-    %make_full = @(fk) [conj(fk(end:-1:1)); fk(2:end)];
-    %reduce = @(fk) fk((numel(fk)-1)/2+1 :end);
+
     [ak,ck,Dk,Fk] = unpack(x,N,M);
     L = L_matrix(Fk,Dk,ck);
     p = -0.5*reduce((L') \ make_full(ak));
@@ -8,11 +7,7 @@ function [f,df] = obj_fun(x,N,M)
     f = entropy_rate(ak,ck,p,Fk,Dk);
     [P,Q,R] = entropy_grad(ak,ck,p);
     p = make_full(p);
-    %dp = (L') \ ((2*pi*(-N/2:N/2)').^2 .*p);
-    %LL = inv(L');
-    %offset = N/2+1;
-    %dpda1 =  -0.5*(LL(:,4+offset) + LL(:,-4+offset));
-    %w2 = sum(dpda1.*P);
+
 
     w = conj(L \ conj(P));
     ds_dF  = real(Fk(1)/Dk(1) + 2*pi* 1j * sum( (-N/2 : N/2)' .* w.*p));
@@ -42,7 +37,7 @@ function [f,df] = obj_fun(x,N,M)
     ds_dbi = reduce(ds_dbi);
     
     df = repack(M,ds_dar + 1j*ds_dai,ds_dbr + 1j*ds_dbi,ds_dD,ds_dF);
-    %}
+
     
 function f = make_full(fk)
     f = [conj(fk(end:-1:1)); fk(2:end)];
