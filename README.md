@@ -1,7 +1,7 @@
 # EntropyProductionFromWaitingTimes
 This repository provides the code from the paper "Estimating entropy production from waiting times", arXiv:2105.08681.
 
-The scripts in this directory will reproduce the figures and tables from the paper and SI, using saved data from Data/.
+The scripts in this directory will reproduce the figures and tables from the paper and SI, using saved data from Data/. The Mathematica notebook AsymptoticCalc.nb shows the derivation of the asymptotic formula.
 
 The script ExampleScript.m shows how easy it is to bound the entropy production rate from experimental measurements. It also shows how the saved data was generated, although this was performed on the MIT Supercloud cluster, taking many computational hours -- the saved data means you don't need to repeat this computation!
 
